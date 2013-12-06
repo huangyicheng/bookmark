@@ -1,0 +1,93 @@
+<#macro paginate currentPage totalPage actionUrl urlParas="">
+	<#if (totalPage <= 0) || (currentPage > totalPage)><#return></#if>
+	<#local startPage = currentPage - 4>
+	<#if (startPage < 1)><#local startPage = 1></#if>
+	
+	<#local endPage = currentPage + 4>
+	<#if (endPage > totalPage)><#local endPage = totalPage></#if>
+	
+	<div class="ui borderless pagination menu">
+			<#if (currentPage <= 8)>
+				<#local startPage = 1>
+			</#if>
+			<#if ((totalPage - currentPage) < 8)>
+				<#local endPage = totalPage>
+			</#if>
+			
+			<#if (currentPage == 1)>
+				<!-- <span class="">上页</span> --> 
+				 <a class="item">
+    <i class="icon left arrow"></i> Previous
+  </a>
+				<!--<div class="ui animated button">
+				  <div class="visible content">上一页</div>
+				  <div class="hidden content">
+				  </div>
+				</div> -->
+			<#else>
+				<!--<a href="${path}${actionUrl}#{currentPage - 1}${urlParas!}" class="">上页</a> -->
+				<a class="item" href="${path}${actionUrl}#{currentPage - 1}${urlParas!}"><i class="icon left arrow"></i> Previous</a>
+				<!--<div class="ui animated button">
+				  <div class="visible content">上一页</div>
+				  <div class="hidden content">
+				  </div>
+				</div>-->
+			</#if>
+			
+			<#if (currentPage > 8)>
+				<a class="item" href="${path}${actionUrl}#{1}${urlParas!}">#{1}</a>
+				<a class="item" href="${path}${actionUrl}#{2}${urlParas!}">#{2}</a>
+				<span class="item">…</span>
+			</#if>
+			
+			<#list startPage..endPage as i>
+				<#if currentPage == i>
+					<!-- <span class="current">#{i}</span> -->
+					<a class="item">#{i}</a>
+				<#else>
+					<a class="item" href="${path}${actionUrl}#{i}${urlParas!}">#{i}</a>
+				</#if>
+			</#list>
+			
+			<#if ((totalPage - currentPage) >= 8)>
+				<span class="gap">…</span>
+				<a class="item" href="${path}${actionUrl}#{totalPage - 1}${urlParas!}">#{totalPage - 1}</a>
+				<a class="item" href="${path}${actionUrl}#{totalPage}${urlParas!}">#{totalPage}</a>
+			</#if>
+			
+			<#if (currentPage == totalPage)>
+				 <a class="item">
+    Next <i class="icon right arrow"></i>
+  </a>
+				<!--<div class="ui animated button">
+				  <div class="visible content">下一页</div>
+				  <div class="hidden content">
+				  </div>
+				</div> -->
+			<#else>
+				<!-- <a href="${path}${actionUrl}#{currentPage + 1}${urlParas!}" class="next_page" rel="next">下页</a> 
+				<div class="ui animated button">
+				  <div class="visible content">下一页</div>
+				  <div class="hidden content">
+				  </div>
+				</div>-->
+				 <a href="${path}${actionUrl}#{currentPage + 1}${urlParas!}" class="item">Next<i class="icon right arrow"></i></a>
+			</#if>
+	</div>
+</#macro>
+<!-- 
+<div class="ui borderless pagination menu">
+  <a class="item">
+    <i class="icon left arrow"></i> Previous
+  </a>
+  <a class="item">1</a>
+  <a class="item">2</a>
+  <a class="item">3</a>
+  <a class="item">4</a>
+  <a class="item">5</a>
+  <a class="item">6</a>
+  <a class="item">
+    Next <i class="icon right arrow"></i>
+  </a>
+</div>
+ -->

@@ -1,0 +1,44 @@
+<#include "../../common/_layout.html"/>
+<@layout>
+<div style="padding:20px;width:600px;margin:auto;">
+	<div class="ui small form segment">
+			<div class="field">
+				<label>名称</label> <input id="name" type="text" placeholder="">
+			</div>
+			<div class="field">
+				<label>URL</label> <input id="url" type="text" placeholder="">
+			</div>
+		<div class="ui buttons">
+		  <div id="save" class="ui positive button">保存</div>
+		  <div class="or"></div>
+		  <div id="cancel" class="ui button">返回</div>
+		</div>
+	</div>
+</div>
+<script>
+    $(".nav-item-webtype").addClass("on");
+    $('#save').click(function()
+    {
+        var data = {};
+    	data['website.name'] = $('#name').val(); 
+    	data['website.url'] = $('#url').val();
+    	data['website.wid'] = ${wid};
+    	$.post('${path}/bookmark/add2',data,function(data)
+    	{
+    	    if(data.error)
+    		{
+
+    		}
+    		else
+    		{
+    		    location.href = "${path}/bookmark/websitelist/${wid}";
+    		}
+    	});
+     });
+    $("#cancel").click(function()
+    {
+    	location.href = "${path}/bookmark";
+    });
+</script>
+</@layout>
+<!-- 333333333333333333333333333333333333333333333333 -->

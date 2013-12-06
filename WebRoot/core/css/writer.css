@@ -1,0 +1,39 @@
+.writer-main .title {
+font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;
+width: 100%;
+padding: 5px 20px 5px 30px;
+border: 0;
+border-bottom: 1px dotted #d9d9d9;
+font-size: 30px;
+line-height: 30px;
+overflow: hidden;
+outline: none;
+text-align:center;
+}
+.writer-main .tags
+{
+width: 100%;
+border: 0;
+padding: 3px 50px 3px 10px;
+border-bottom: 1px dotted #d9d9d9;
+font-size: 16px;
+overflow: hidden;
+outline: none;
+color:#5c5c5c;
+}
+.writer-main .writer-markdown .text {
+font-family: Georgia,"Times New Roman",Times,"Songti SC","SimSun",serif;
+font-size: 16px;
+font-weight: normal;
+line-height: 25px;
+width: 100%;
+margin-bottom: 0;
+
+resize: none;
+
+outline: none;
+
+border: 0;
+background:#E8E8E8;
+height:75%;
+}

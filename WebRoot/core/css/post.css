@@ -1,0 +1,13 @@
+#content{position: absolute;left: 370px;top: 170px;width:60%;}
+.people {position: absolute;left: 180px;width: 180px;height:400px;}
+.title{position: absolute;left: 370px;width: 60%;height:100px;}
+/****************people************************/
+.vcard-names {text-align: center;margin-top: 5px;padding-bottom:10px;line-height:1;font-size:20px;}
+.vcard-details {text-align: center;font-size: 15px;color: #999;list-style: none;padding-top: 15px;padding-bottom: 15px;border-top: 1px solid #eee;border-bottom: 1px solid #eee;}
+.vcard-stats {margin-bottom: 10px;padding-top: 15px;padding-bottom: 15px;text-align: center;border-bottom: 1px solid #eee;}
+.column-sec {width: 180px;float:left;}
+.vcard-stat-count {display: block;font-size: 22px;font-weight: bold;line-height: 1;color: #222;}
+a {color: #4183c4;text-decoration: none;cursor: auto;}
+.vcard-stat {float: left;width: 33.333%;font-size: 11px;color: #999;}
+.vcard-stats:before, .vcard-stats:after {content: " ";display: table;}
+.vcard-stats:after {clear: both;}

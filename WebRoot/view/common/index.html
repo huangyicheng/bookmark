@@ -1,0 +1,37 @@
+<#include "./_layout.html"/>
+<@layout>
+<div style="padding:20px;">
+<div class="ui grid">
+<div class="twelve wide column">
+    <#list webtypes as webtype>
+<div class="ui segment" style="display:block;">
+  <h2 class="ui left floated header">${webtype.name}</h2>
+  <div class="ui clearing divider"></div>
+    <div class="ui labels">
+    <#list webtype.websites as website>
+	    <a href="${website.url}" target="_blank" class="ui label">${website.name}</a>
+	</#list>		    
+    </div>
+</div>
+</#list>
+</div>
+<div class="four wide column">
+<div class="ui segment">
+<h2 class="ui left floated header">标签</h2>
+  <div class="ui clearing divider"></div>
+    <div class="ui labels">
+    <#list tags as tag>
+    <a value="" class="ui label" onclick="searchByTag(${tag.id});return false;">${tag.name}</a>
+    </#list>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    function searchByTag(id)
+    {
+    	
+    }
+</script>
+</@layout>

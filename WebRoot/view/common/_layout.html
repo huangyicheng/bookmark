@@ -1,0 +1,120 @@
+<#macro layout>
+<!DOCTYPE html>
+<html>
+<head>
+<title>个性网址</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="${path}/core/css/core.css" rel="stylesheet"> 
+<link href="${path}/core/css/tipswindown.css" rel="stylesheet">
+<link rel="stylesheet" href="${path}/core/css/vex/vex.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-os.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-default.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-flat-attack.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-plain.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-top.css" />
+<link rel="stylesheet" href="${path}/core/css/vex/vex-theme-wireframe.css" />
+
+<link rel="stylesheet" type="text/css" href="${path}/core/uncompressed/collections/grid.css">
+<link rel="stylesheet" type="text/css" href="${path}/core/uncompressed/collections/menu.css">
+<link href="${path}/core/uncompressed/elements/icon.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/button.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/input.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/segment.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/divider.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/label.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/collections/table.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/collections/form.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/collections/grid.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/views/list.css" rel="stylesheet">
+<!-- 
+<link href="${path}/core/uncompressed/elements/semantic.min.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/semantic.css" rel="stylesheet">
+ -->
+<script src="${path}/core/js/jquery-1.4.2.min.js"></script>
+<!--<script src="${path}/core/js/jquery-2.0.2.js"></script> -->
+<script src="${path}/core/js/core.js"></script>
+<script type="text/javascript" src="${path}/core/js/tipswindown.js"></script>
+<script src="${path}/core/js/vex/vex.combined.min.js"></script>
+<script>vex.defaultOptions.className = 'vex-theme-top';</script>
+</head>
+<div id="" class="delicious">
+	<aside class="site-nav" tabindex="1">
+		<div class="sidebar " style="display: block;">
+		<!-- 
+			<div class="site-nav-profile">
+				<a href="#" class="site-nav-user-link" onclick="openwin();return false;">
+					<div class="logo site-nav-logo">
+					</div> 
+				admin
+				</a> 
+				<a href="#" class="site-nav-sign-out pull-right">Sign out</a>
+			</div>
+			<ul class="site-nav-links">
+				<li class="nav-item-home"><a href="${path}/admin"><i
+						class="home green icon"></i><span class="d-icon-house"></span>首页</a></li>
+				<li class="nav-item-webtype"><a
+					href="${path}/bookmark"><i
+						class="sitemap green icon"></i><span class="d-icon-users"></span>类别管理</a>
+				</li>
+				<li class="nav-item-blog"><a href="${path}/blog"><i
+						class="text file green icon"></i><span class="d-icon-house"></span>文章</a>
+				</li>
+				<li class="nav-item-post"><a href="${path}/blog/manage"><i
+						class="text file green icon"></i><span class="d-icon-house"></span>文章管理</a>
+				</li>
+				<li class="nav-item-writer"><a href="${path}/blog/writer"><i
+						class="pencil green icon"></i><span class="d-icon-house"></span>写文章</a>
+				</li>
+			</ul>
+			<div class="site-nav-footer">
+				<ul class="meta-links lowercase">
+					<li><a href="#">Help-</a></li>
+					<li><a href="#">Tools-</a></li>
+					<li><a href="#">Shortcuts-</a></li>
+					<li><a href="#" target="_blank">Blog</a></li>
+				</ul>
+				@<a href="#" target="_blank">AVOS</a> 2013
+			</div>
+			 -->
+			<div class="ui large fluid inverted vertical menu" style="height:100%;">
+				<div class="item">
+					<i class="user icon"></i> knife_lei
+					<div class="menu">
+						<a href="${path}/bookmark" class="item"><i class="bookmark icon"></i>网址管理</a> 
+						<a href="${path}/blog/writer" class="item"><i class="pencil icon"></i>写文章</a> 
+						<a href="#" class="item"><i class="setting icon"></i>设置</a>
+					</div>
+				</div>
+				<a class="item" href="${path}/admin"> <i class="url icon"></i>链接</a> 
+				<a class="item" href="${path}/blog/list"> <i class="unhide icon"></i> 文章</a>
+			</div>
+		</div>
+	</aside>
+
+	<div class="content-wrapper">
+		<div class="link-nav-fixed-wrapper">
+			<div class="hero-unit">
+				<div class="user-info">
+					<img src="" class="avatar-img">
+					<div class="info">
+						<h2 class="name">
+							<span>knife_lei</span>
+						</h2>
+						<div class="bio">
+							书山有路勤为径，学海无涯苦作舟。
+						</div>
+						<div class="user-stats" style="margin-top:5px;">
+							<a href="#"><span>链接&nbsp;<strong class="user-stats-count">123</strong></span></a> 
+							<a href="#"><span>关注&nbsp;<strong class="user-stats-count">456</strong></span></a>
+							<a href="#"><span>粉丝&nbsp;<strong class="user-stats-count">678</strong></span></a>
+						</div>
+						<div class="joined mobile-hide">Joined on Sep 25, 2013</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<#nested>
+	</div>
+</div>
+</#macro>

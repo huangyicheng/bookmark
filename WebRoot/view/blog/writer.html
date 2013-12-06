@@ -1,0 +1,67 @@
+<#include "../common/_layout.html"/>
+<link rel="stylesheet" href="${path}/core/css/writer.css">
+<@layout>
+
+<div style="width:800px;padding:20px;margin:auto;">
+  <div class="writer-main" >
+	  <form class="writer-markdown">
+	    <input style="background:#E8E8E8;" id="title" class="title mousetrap" name="note_name" type="text" value="标题">
+	    <input style="background:#E8E8E8;" id="tags" class="tags" name="note_name" type="text" value="标签 (用#分隔多个标签)">
+	    <textarea class="text mousetrap" name="note_content" id="text"></textarea>
+	  </form>
+	  <div style="margin-top:10px;">
+		<div id="preview" class="ui labeled icon button">
+			<i class="unhide icon"></i>预览
+		</div>
+		<div id="post" class="ui labeled icon button">
+			<i class="save icon"></i>发表
+		</div>
+		<div id="cancel" class="ui labeled icon button" style="float:right;">
+		    <i class="remove icon"></i>取消
+		</div>
+	  </div>  
+  </div>
+</div>
+<script>
+    $("#title").focus(function()
+    {
+    	if($(this).val() == "标题")
+    	{
+    		$(this).val("");
+    	}
+    	
+    }).blur(function()
+    {
+    	if($(this).val() == "")
+    	{
+    		$(this).val("标题");
+    	}
+    	
+    });
+    $("#tags").focus(function()
+    	    {
+		    	if($(this).val() == "标签 (用#分隔多个标签)")
+		    	{
+		    		$(this).val("");
+		    	}
+    	    }).blur(function()
+    	    {
+    	    	if($(this).val() == "")
+    	    	{
+    	    		$(this).val("标签 (用#分隔多个标签)");
+    	    	}
+    	    	
+    	    });
+    $("#post").click(function()
+    {
+    	var data = {};
+    	data['title'] = $('#title').val(); 
+    	data['tags'] = $('#tags').val();
+    	data['text'] = $('#text').val();
+    	$.post('${path}/blog/post',data,function(data)
+    	{
+    		vex.dialog.alert("success");
+    	});
+    });
+</script>
+</@layout>

@@ -1,0 +1,19 @@
+<#include "../common/_layout.html"/>
+<@layout>
+<div style="padding:20px;">
+<#list articles as article>
+<div class="ui segment">
+  <h2 class="ui left floated header">${article.name}</h2>
+  <div class="ui clearing divider"></div>
+    <div class="ui blue labels">
+    <#list article.posts as post>
+	    <a class="ui label" href="${path}/blog/read/${article.name}-${post}" target="_blank" >${post}</a>
+	</#list>	    
+    </div>
+</div>
+</#list>
+</div>
+<script>
+    $(".nav-item-blog").addClass("on");
+</script>
+</@layout>

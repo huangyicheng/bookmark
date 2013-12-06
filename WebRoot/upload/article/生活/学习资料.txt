@@ -1,0 +1,5 @@
+spring
+    开发 Spring 自定义视图和视图解析器-http://www.ibm.com/developerworks/cn/java/j-lo-springview/index.html
+    Java 7 并发编程指南中文版http://ifeve.com/java-7-concurrency-cookbook/?utm_campaign=Manong_Weekly_Issue_5&utm_medium=EDM&utm_source=Manong_Weekly
+    开源分布式版本控制工具 —— Git 之旅http://www.ibm.com/developerworks/cn/opensource/os-cn-tourofgit/
+    使用 node.js 进行服务器端 JavaScript 编程http://www.ibm.com/developerworks/cn/web/1107_chengfu_nodejs/index.html

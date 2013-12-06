@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>增加类别</title>
+<link href="${path}/core/uncompressed/elements/icon.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/button.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/elements/segment.css" rel="stylesheet">
+<link href="${path}/core/uncompressed/collections/form.css" rel="stylesheet">
+<script src="${path}/core/js/jquery-2.0.2.js"></script>
+</head>
+<body>
+<div style="padding:10px 20px 5px 20px;width:600px;margin:auto;">
+	<div class="ui small form segment">
+			<div class="field">
+				<label>名称</label> <input id="name" type="text" value="${website.name}" placeholder="">
+			</div>
+			<div class="field">
+				<label>URL</label> <input id="url" type="text" value="${website.url}" placeholder="">
+			</div>
+			<div class="four fields">
+			 <#list tags as tag>
+			    <div class="field">
+					<label>tag</label>
+					<input id="tag1" type="text" value="${tag.name}">
+				</div>
+			 </#list>
+		     </div>
+		<div class="ui buttons">
+		  <div id="save" class="ui positive button">保存</div>
+		  <div class="or"></div>
+		  <div id="cancel" class="ui button">返回</div>
+		</div>
+	</div>
+</div>
+<script>
+   
+	$('#save').click(function() {
+		var data = {};
+    	data['website.name'] = $('#name').val(); 
+    	data['website.url'] = $('#url').val();
+    	data['website.id'] = ${website.id};
+		$.post('${path}/bookmark/edit2', data, function(data) {
+			if (data.error) {
+
+			} else {
+				parent.fresh();
+				parent.closeTip();
+			}
+		});
+	});
+	$("#cancel").click(function() {
+		parent.closeTip();
+	});
+</script>
+</body>
+</html>

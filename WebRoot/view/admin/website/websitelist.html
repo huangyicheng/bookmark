@@ -1,0 +1,104 @@
+<#include "../../common/_layout.html"/>
+<@layout>
+<div style="padding:20px;">
+<div class="ui segment">
+  <h2 class="ui left floated header">${webtype.name}</h2>
+  <div class="ui clearing divider"></div>
+  <table class="ui sortable table segment">
+	  <thead>
+	    <tr>
+	    <th class="three wide" style="text-align:center">名称</th>
+	    <th class="five wide" style="text-align:center">链接地址</th>
+	    <th class="three wide" style="text-align:center">操作</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  <#list websites.list as website>
+	      <tr>
+	      <td>${website.name}</td>
+	      <td>${website.url}</td>
+	      <td style="text-align:center">
+		     <i class="edit icon"></i><a href="#" style="color:#000;" onclick="editWebsite(${website.id});return false;">编辑</a>&nbsp;&nbsp;
+	         <i class="remove icon"></i><a class="delete" href="#" value="${website.id}" onclick='deleteWebsite(${website.id});return false' style="color:#000;">删除</a>&nbsp;&nbsp;
+	      </td>
+	      </tr>
+      </#list>
+	  </tbody>
+	  <tfoot>
+	    <tr>
+		    <th colspan="4">
+		    <#include "../../common/_paginate.html" />
+	        <@paginate currentPage=websites.pageNumber totalPage=websites.totalPage actionUrl="/bookmark/websitelist/${webtype.id}-" />
+		      
+		    </th>
+	    </tr>
+	  </tfoot>
+	</table>
+		<div style="float:right;">
+			<div id="add" class="ui labeled icon button">
+				<i class="add icon"></i>添加网址
+			</div>
+			<div id="reply" class="ui labeled icon button">
+				<i class="forward icon"></i><a>返回</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+    $(".nav-item-webtype").addClass("on");
+    $("#add").click(function()
+    {
+    	tipsWindown("增加网址","iframe:${path}/bookmark/addWebsite/${webtype.id}",640, 340,"true","","true");
+    	return false;
+    });
+    $("#reply").click(function()
+    {
+    	window.location = "${path}/bookmark";
+    });
+    function editWebsite(id)
+    {
+    	tipsWindown("网址编辑","iframe:${path}/bookmark/editWebsite/"+id,640, 340,"true","","true");
+    }
+    function addWebsite(id)
+    {
+    	
+    }
+    function deleteWebsite(id)
+    {
+    	var data = {};
+    	data['website.id'] = id;
+    	vex.dialog.confirm({
+    		message: '你确定要删除这个网址',
+            callback: function(value) {
+            	if(value)
+            	{
+            		$.post('${path}/bookmark/deleteWebsite',data,function(data)
+                        	{
+                        	    if(data.msg == "success")
+                        	    {
+                        	        fresh();
+                        	    }
+                        	    else
+                        	    {
+                        	    	vex.dialog.alert('删除失败');
+                        	    }
+                        	});
+            	}
+            	else
+            	{
+            		return;
+            	}
+            }
+    	});
+    }
+    function closeTip()
+    {
+    	$("#windown-close").click();
+    	//
+    }
+    function fresh()
+    {
+    	location.href = "${path}/bookmark/websitelist/${webtype.id}";
+    }
+</script>
+</@layout>
